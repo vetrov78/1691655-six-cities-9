@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов»
 
 * Студент: [Andrey Vetrov](https://up.htmlacademy.ru/react/9/user/1691655).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Фаллер](https://htmlacademy.ru/profile/id505933).
 
 ---
 
