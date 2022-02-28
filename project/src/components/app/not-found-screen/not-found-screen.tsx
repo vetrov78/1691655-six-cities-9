@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function NotFoundScreen ():JSX.Element {
   return(
     <div className="page page--favorites-empty">
@@ -33,13 +35,13 @@ function NotFoundScreen ():JSX.Element {
         <h1 className="visually-hidden">Not Found (404)</h1>
         <div className="not-found__status-wrapper">
           <b className="not-found__status">404. Page not found</b>
-          <a className="not-found__back-to-main" href="/">Back to main page</a>
+          <Link className="not-found__back-to-main" to="/">Back to main page</Link>
         </div>
       </main>
       <footer className="footer">
-        <a className="footer__logo-link" href="main.html">
+        <Link className="footer__logo-link" to="main.html">
           <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33" />
-        </a>
+        </Link>
       </footer>
     </div>
   );
