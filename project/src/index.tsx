@@ -9,7 +9,7 @@ const Settings = {
 ReactDOM.render(
   <React.StrictMode>
     <App
-      rentObjecsNumber =  {Settings.RENT_OBJECT_NUMBER}
+      rentObjectsNumber =  {Settings.RENT_OBJECT_NUMBER}
     />
   </React.StrictMode>,
   document.getElementById('root'));
