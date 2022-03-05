@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
+import { Offer } from '../../../mocks/offer';
 
-function CityScreen(): JSX.Element {
+type CityScreenProps = {
+  offer: Offer;
+}
+
+function CityScreen(props: CityScreenProps): JSX.Element {
+  const {offer} = props
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">

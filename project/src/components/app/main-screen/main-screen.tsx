@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
+// import CityScreen from '../city-screen/city-screen';
+import { Offer } from '../../../mocks/offer';
 import CityScreen from '../city-screen/city-screen';
 
 type AppScreenProps = {
   rentObjecsNumber: number;
+  offers: Offer[];
 }
 
-function MainScreen({rentObjecsNumber}: AppScreenProps): JSX.Element {
+function MainScreen({rentObjecsNumber, offers}: AppScreenProps): JSX.Element {
   return(
     <div className="page page--gray page--main">
       <header className="header">
@@ -92,12 +95,14 @@ function MainScreen({rentObjecsNumber}: AppScreenProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <CityScreen />
-                <CityScreen />
-                <CityScreen />
-                <CityScreen />
-                <CityScreen />
-                <CityScreen />
+
+                {offers.map((offer) => (
+                  <CityScreen
+                    key={offer.id}
+                    offer={offer}
+                  />
+                ))}
+
               </div>
             </section>
             <div className="cities__right-section">

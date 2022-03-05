@@ -1,7 +1,7 @@
 export enum AppRoute {
   Login = '/login',
   Favorites = '/favorites',
-  Offer = '/offer:id',
+  Offer = '/offer/:id',
   Root = '/',
 }
 
@@ -10,3 +10,9 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export const Settings = {
+  RENT_OBJECT_NUMBER: 6,
+};
+
+
