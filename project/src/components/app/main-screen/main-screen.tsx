@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
-// import CityScreen from '../city-screen/city-screen';
-import { Offer } from '../../../mocks/offer';
-import CityScreen from '../place-card-screen/place-card-screen';
+import { Offer } from '../../../types/offer';
+import ListPlacesScreen from '../list-places-screen/list-places-screen';
 
 type AppScreenProps = {
   rentObjecsNumber: number;
@@ -94,16 +93,9 @@ function MainScreen({rentObjecsNumber, offers}: AppScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-
-                {offers.map((offer) => (
-                  <CityScreen
-                    key={offer.id}
-                    offer={offer}
-                  />
-                ))}
-
-              </div>
+              <ListPlacesScreen
+                offers={offers}
+              />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>

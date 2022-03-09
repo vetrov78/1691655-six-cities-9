@@ -1,4 +1,4 @@
-import { Offer } from './offer';
+import { Offer } from '../types/offer';
 
 export const offers: Offer[] = [
   {
@@ -34,7 +34,7 @@ export const offers: Offer[] = [
     'type': 'house',
     'bedrooms': 4,
     'maxAdults': 5,
-    'price': 463,
+    'price': 464,
     'goods': [
       'Dishwasher',
       'Baby seat',

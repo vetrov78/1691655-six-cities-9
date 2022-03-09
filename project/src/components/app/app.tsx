@@ -6,9 +6,9 @@ import NotFoundScreen from './not-found-screen/not-found-screen';
 import FavoritesScreen from './favorites-screen/favorites-screen';
 import PropertyScreen from './property-screen/property-screen';
 import PrivateRoute from './private-route/private-route';
-import { Offer } from '../../mocks/offer';
+import { Offer } from '../../types/offer';
 
-type AppScreenProps = {
+export type AppScreenProps = {
   rentObjectsNumber: number;
   offers: Offer[];
 }
@@ -34,7 +34,7 @@ function App({rentObjectsNumber, offers}: AppScreenProps): JSX.Element {
           path={AppRoute.Favorites}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={AuthorizationStatus.Auth}
             >
               <FavoritesScreen />
             </PrivateRoute>
