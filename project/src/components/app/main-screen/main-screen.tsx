@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
 import { Offer } from '../../../types/offer';
-import ListPlacesScreen from '../list-places-screen/list-places-screen';
+import ListPlacesScreen from '../offers-list-screen/offers-list-screen';
 
 type AppScreenProps = {
   rentObjecsNumber: number;

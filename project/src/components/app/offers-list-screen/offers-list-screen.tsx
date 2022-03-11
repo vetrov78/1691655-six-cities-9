@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Offer } from '../../../types/offer';
+import { Offers } from '../../../types/offer';
 import OfferCardScreen from '../offer-card-screen/offer-card-screen';
 
 type OffersListProps = {
-  offers: Offer[];
+  offers: Offers;
 }
 
 function OffersListScreen(props: OffersListProps):JSX.Element {
@@ -18,9 +18,11 @@ function OffersListScreen(props: OffersListProps):JSX.Element {
           <OfferCardScreen
             key={offer.id}
             offer={offer}
-            setActiveOffer={(currentOffer) => {
-              setActiveOffer(currentOffer);
-            }}
+            setActiveOffer={
+              (currentOffer) => {
+                setActiveOffer(currentOffer);
+              }
+            }
           />
         ))
       }

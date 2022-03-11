@@ -1,7 +1,20 @@
 import Logo from '../logo/logo';
 import { Link } from 'react-router-dom';
+import { Offers } from '../../../types/offer';
 
-function FavoritesScreen (): JSX.Element {
+type FavoriteScreenProps = {
+  offers: Offers,
+}
+
+function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
+  const {offers} = props;
+  // const favoriteCitiesList = offers.reduce((result, a) => {
+  //   result[a.city.name] = result[a.city.name] || [];
+  //   result[a.city.name].push(a);
+
+  //   return result;
+  // }, Object.create(null));
+
   return (
     <div className="page">
       <header className="header">
@@ -31,7 +44,7 @@ function FavoritesScreen (): JSX.Element {
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
           <section className="favorites">
-            <h1 className="favorites__title">Saved listing</h1>
+            <h1 className="favorites__title">Saved listing {offers.length}</h1>
             <ul className="favorites__list">
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -110,7 +123,6 @@ function FavoritesScreen (): JSX.Element {
                   </article>
                 </div>
               </li>
-
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
                   <div className="locations__item">
