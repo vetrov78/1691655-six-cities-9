@@ -1,3 +1,5 @@
+import { type } from "os"
+
 type Location = {
   latitude: number,
   longitude: number,
@@ -34,3 +36,5 @@ export type Offer = {
   'location': Location,
   'id': number,
 }
+
+export type Offers = Offer[]

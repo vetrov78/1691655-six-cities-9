@@ -36,7 +36,9 @@ function App({rentObjectsNumber, offers}: AppScreenProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.Auth}
             >
-              <FavoritesScreen />
+              <FavoritesScreen
+                offers={offers}
+              />
             </PrivateRoute>
           }
         />
