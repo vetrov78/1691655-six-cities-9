@@ -1,5 +1,3 @@
-import { type } from "os"
-
 type Location = {
   latitude: number,
   longitude: number,
