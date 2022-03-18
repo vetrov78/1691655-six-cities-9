@@ -1,23 +1,30 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from '../../const';
+import { AppRoute, AuthorizationStatus } from '../../consts';
 import MainScreen from './main-screen/main-screen';
 import LoginScreen from './login-screen/login-screeen';
 import NotFoundScreen from './not-found-screen/not-found-screen';
 import FavoritesScreen from './favorites-screen/favorites-screen';
 import PropertyScreen from './property-screen/property-screen';
 import PrivateRoute from './private-route/private-route';
+import { Offer } from '../../types/offer';
 
-type AppScreenProps = {
+export type AppScreenProps = {
   rentObjectsNumber: number;
+  offers: Offer[];
 }
 
-function App({rentObjectsNumber}: AppScreenProps): JSX.Element {
+function App({rentObjectsNumber, offers}: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<MainScreen rentObjecsNumber={rentObjectsNumber} />}
+          element={
+            <MainScreen
+              rentObjecsNumber={rentObjectsNumber}
+              offers={offers}
+            />
+          }
         />
         <Route
           path={AppRoute.Login}
@@ -27,15 +34,21 @@ function App({rentObjectsNumber}: AppScreenProps): JSX.Element {
           path={AppRoute.Favorites}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={AuthorizationStatus.Auth}
             >
-              <FavoritesScreen />
+              <FavoritesScreen
+                offers={offers}
+              />
             </PrivateRoute>
           }
         />
         <Route
           path={AppRoute.Offer}
-          element={<PropertyScreen />}
+          element={
+            <PropertyScreen
+              offers={offers}
+            />
+          }
         />
         <Route
           path="*"
@@ -43,7 +56,6 @@ function App({rentObjectsNumber}: AppScreenProps): JSX.Element {
         />
       </Routes>
     </BrowserRouter>
-    // <MainScreen rentObjecsNumber={rentObjecsNumber} />
   );
 }
 
