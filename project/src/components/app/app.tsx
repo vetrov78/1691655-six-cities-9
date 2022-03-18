@@ -44,7 +44,11 @@ function App({rentObjectsNumber, offers}: AppScreenProps): JSX.Element {
         />
         <Route
           path={AppRoute.Offer}
-          element={<PropertyScreen />}
+          element={
+            <PropertyScreen
+              offers={offers}
+            />
+          }
         />
         <Route
           path="*"

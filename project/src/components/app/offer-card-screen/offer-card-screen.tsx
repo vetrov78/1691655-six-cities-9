@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AppRoute } from '../../../consts';
 import { Offer } from '../../../types/offer';
 import { getRatingInProcent } from '../../../utils';
 
@@ -8,6 +9,7 @@ type OfferCardScreenProps = {
 }
 
 function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
+  const navigate = useNavigate();
   const {offer, setActiveOffer} = props;
 
   return (
@@ -27,7 +29,7 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
       }
       <div className="cities__image-wrapper place-card__image-wrapper">
         <Link to="#">
-          <img className="place-card__image" src={offer.images[0]} width="260" height="200" alt="Place" />
+          <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place" />
         </Link>
       </div>
       <div
@@ -60,7 +62,12 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to="#">{offer.title}</Link>
+          <Link
+            onClick={() => navigate(AppRoute.Offer)}
+            to={`/offer/${offer.id}`}
+          >
+            {offer.title}
+          </Link>
         </h2>
         <p className="place-card__type">
           {offer.type}

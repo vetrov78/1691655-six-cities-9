@@ -154,10 +154,10 @@ export const offers: Offer[] = [
       'Washer',
     ],
     'host': {
-      'id': 25,
-      'name': 'Angelina',
-      'isPro': true,
-      'avatarUrl': 'img/avatar-angelina.jpg',
+      'id': 22,
+      'name': 'Max',
+      'isPro': false,
+      'avatarUrl': 'img/avatar-max.jpg',
     },
     'description': 'A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.',
     'location': {
