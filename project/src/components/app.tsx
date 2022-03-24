@@ -1,12 +1,12 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from '../../consts';
-import MainScreen from './main-screen/main-screen';
-import LoginScreen from './login-screen/login-screeen';
-import NotFoundScreen from './not-found-screen/not-found-screen';
-import FavoritesScreen from './favorites-screen/favorites-screen';
-import PropertyScreen from './property-screen/property-screen';
-import PrivateRoute from './private-route/private-route';
-import { Offer } from '../../types/offer';
+import { AppRoute, AuthorizationStatus } from '../consts';
+import MainScreen from '../routes/main-screen/main-screen';
+import LoginScreen from '../routes/login-screen/login-screeen';
+import NotFoundScreen from '../routes/not-found-screen/not-found-screen';
+import FavoritesScreen from '../routes/favorites-screen/favorites-screen';
+import PropertyScreen from '../routes/property-screen/property-screen';
+import PrivateRoute from '../routes/private-route/private-route';
+import { Offer } from '../types/offer';
 
 export type AppScreenProps = {
   rentObjectsNumber: number;

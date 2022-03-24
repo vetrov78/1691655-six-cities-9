@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Offer } from '../../../types/offer';
-import { getRatingInProcent } from '../../../utils';
+import { Offer } from '../../types/offer';
+import { getRatingInProcent } from '../../utils';
 
 function FavoriteOfferCardScreen(props: { offer: Offer }): JSX.Element {
   const {offer} = props;

@@ -1,6 +1,6 @@
 import Logo from '../logo/logo';
 import { Link } from 'react-router-dom';
-import { Offer, Offers } from '../../../types/offer';
+import { Offer, Offers } from '../../types/offer';
 import FavoriteOfferCardScreen from '../favorite-offer-screen/favorite-offer-screen';
 
 type FavoriteScreenProps = {

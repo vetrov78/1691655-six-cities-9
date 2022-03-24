@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { Offer } from '../../../types/offer';
-import { getRatingInProcent } from '../../../utils';
+import { Offer } from '../../types/offer';
+import { getRatingInProcent } from '../../utils';
 import ReviewScreen from '../review-screen/review-screen';
 
 function PropertyScreen (props: { offers: Offer[] }): JSX.Element {

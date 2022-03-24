@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { AppRoute } from '../../../consts';
-import { Offer } from '../../../types/offer';
-import { getRatingInProcent } from '../../../utils';
+import { AppRoute } from '../../consts';
+import { Offer } from '../../types/offer';
+import { getRatingInProcent } from '../../utils';
 
 type OfferCardScreenProps = {
   offer: Offer

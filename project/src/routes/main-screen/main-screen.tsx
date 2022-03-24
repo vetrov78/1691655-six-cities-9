@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
-import { Offer } from '../../../types/offer';
+import { Offer } from '../../types/offer';
 import OffersListScreen from '../offers-list-screen/offers-list-screen';
 
 type AppScreenProps = {
