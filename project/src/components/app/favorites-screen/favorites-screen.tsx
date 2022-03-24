@@ -49,7 +49,7 @@ function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
           <section className="favorites">
-            <h1 className="favorites__title">Saved listing</h1>
+            <h1 className="favorites__title">Saved listing {offers.length}</h1>
             <ul className="favorites__list">
               {
                 Object.entries(favoriteCitiesList).map(([key, value]) => (
