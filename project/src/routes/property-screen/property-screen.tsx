@@ -60,11 +60,10 @@ function PropertyScreen (props: { offers: Offer[] }): JSX.Element {
           <div className="property__container container">
             <div className="property__wrapper">
               {
-                currentOffer?.isPremium ?
+                currentOffer?.isPremium &&
                   <div className="property__mark">
                     <span>Premium</span>
-                  </div> :
-                  <div />
+                  </div>
               }
               <div className="property__name-wrapper">
                 <h1 className="property__name">
@@ -128,11 +127,13 @@ function PropertyScreen (props: { offers: Offer[] }): JSX.Element {
                     <img className="property__avatar user__avatar" src={currentOffer?.host.avatarUrl} width="74" height="74" alt="Host avatar" />
                   </div>
                   <span className="property__user-name">
-                    {currentOffer?.host.name}
+                    {
+                      currentOffer?.host.name
+                    }
                   </span>
-                  <span className="property__user-status">
-                    {currentOffer?.host.isPro ? 'Pro' : ''}
-                  </span>
+                  {
+                    currentOffer?.host.isPro && <span className="property__user-status">Pro</span>
+                  }
                 </div>
                 <div className="property__description">
                   <p className="property__text">

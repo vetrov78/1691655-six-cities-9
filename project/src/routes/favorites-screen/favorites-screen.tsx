@@ -1,7 +1,8 @@
 import Logo from '../logo/logo';
 import { Link } from 'react-router-dom';
 import { Offer, Offers } from '../../types/offer';
-import FavoriteOfferCardScreen from '../favorite-offer-screen/favorite-offer-screen';
+import OfferCardScreen from '../offer-card-screen/offer-card-screen';
+import { useState } from 'react';
 
 type FavoriteScreenProps = {
   offers: Offers,
@@ -9,7 +10,8 @@ type FavoriteScreenProps = {
 
 function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
   const {offers} = props;
-  const favoriteCitiesList: {[name:string]: Offer[]} = Object.create(null);
+  const [activeOffer, setActiveOffer] = useState({} as Offer);
+  const favoriteCitiesList: {[name:string]: Offer[]} = {};
 
   offers.forEach(
     (offer) => {
@@ -50,6 +52,13 @@ function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
         <div className="page__favorites-container container">
           <section className="favorites">
             <h1 className="favorites__title">Saved listing {offers.length}</h1>
+
+            {
+              'id' in activeOffer ?
+                <h2>{activeOffer.id}</h2> :
+                <h2>0</h2>
+            }
+
             <ul className="favorites__list">
               {
                 Object.entries(favoriteCitiesList).map(([key, value]) => (
@@ -64,9 +73,15 @@ function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
                     <div className="favorites__places">
                       {
                         value.map((offer) => (
-                          <FavoriteOfferCardScreen
+                          <OfferCardScreen
                             key={offer.id}
+                            offerType='favorite'
                             offer={offer}
+                            setActiveOffer={
+                              (currentOffer) => {
+                                setActiveOffer(currentOffer);
+                              }
+                            }
                           />
                         ))
                       }
