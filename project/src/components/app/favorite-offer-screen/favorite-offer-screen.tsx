@@ -1,25 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { AppRoute } from '../../../consts';
+import { Link } from 'react-router-dom';
 import { Offer } from '../../../types/offer';
 import { getRatingInProcent } from '../../../utils';
 
-type OfferCardScreenProps = {
-  offer: Offer
-  setActiveOffer: (offer: Offer) => void
-}
-
-function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
-  const navigate = useNavigate();
-  const {offer, setActiveOffer} = props;
+function FavoriteOfferCardScreen(props: { offer: Offer }): JSX.Element {
+  const {offer} = props;
 
   return (
-    <article
-      onMouseEnter={(evt) => {
-        evt.preventDefault();
-        setActiveOffer(offer);
-      }}
-      className="cities__place-card place-card"
-    >
+    <article key={offer.id} className="favorites__card place-card">
       {
         offer.isPremium ?
           <div className="place-card__mark">
@@ -27,14 +14,12 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
           </div> :
           <div />
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className="favorites__image-wrapper place-card__image-wrapper">
         <Link to="#">
-          <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place" />
+          <img className="place-card__image" src={offer.images[0]} width="150" height="110" alt="Place" />
         </Link>
       </div>
-      <div
-        className="place-card__info"
-      >
+      <div className="favorites__card-info place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{offer.price}</b>
@@ -52,7 +37,7 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
-            <span className="visually-hidden">To bookmarks</span>
+            <span className="visually-hidden">In bookmarks</span>
           </button>
         </div>
         <div className="place-card__rating rating">
@@ -62,19 +47,12 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link
-            onClick={() => navigate(AppRoute.Offer)}
-            to={`/offer/${offer.id}`}
-          >
-            {offer.title}
-          </Link>
+          <Link to="#">{offer.title}</Link>
         </h2>
-        <p className="place-card__type">
-          {offer.type}
-        </p>
+        <p className="place-card__type">{offer.type}</p>
       </div>
     </article>
   );
 }
 
-export default OfferCardScreen;
+export default FavoriteOfferCardScreen;

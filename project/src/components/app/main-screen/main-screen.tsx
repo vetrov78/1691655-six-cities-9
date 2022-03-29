@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
 import { Offer } from '../../../types/offer';
-import ListPlacesScreen from '../offers-list-screen/offers-list-screen';
+import OffersListScreen from '../offers-list-screen/offers-list-screen';
 
 type AppScreenProps = {
   rentObjecsNumber: number;
@@ -93,7 +93,7 @@ function MainScreen({rentObjecsNumber, offers}: AppScreenProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <ListPlacesScreen
+              <OffersListScreen
                 offers={offers}
               />
             </section>
