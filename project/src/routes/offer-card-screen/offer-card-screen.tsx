@@ -1,39 +1,49 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { AppRoute } from '../../../consts';
-import { Offer } from '../../../types/offer';
-import { getRatingInProcent } from '../../../utils';
+import { AppRoute } from '../../consts';
+import { Offer } from '../../types/offer';
+import { getRatingInProcent } from '../../utils';
 
 type OfferCardScreenProps = {
+offerType: string
   offer: Offer
   setActiveOffer: (offer: Offer) => void
 }
 
 function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
   const navigate = useNavigate();
-  const {offer, setActiveOffer} = props;
+  const {offerType, offer, setActiveOffer} = props;
+  const ClassNames: { [key: string]: string} = {
+    'favorite': 'favorites__card',
+    'ordinary': 'cities__place-card',
+  };
 
   return (
     <article
-      onMouseEnter={(evt) => {
-        evt.preventDefault();
-        setActiveOffer(offer);
-      }}
-      className="cities__place-card place-card"
+      onMouseEnter={() => setActiveOffer(offer)}
+      onMouseLeave={() => setActiveOffer({} as Offer)}
+      className={`${ClassNames[offerType]} place-card`}
     >
       {
-        offer.isPremium ?
+        offer.isPremium &&
           <div className="place-card__mark">
             <span>Premium</span>
-          </div> :
-          <div />
+          </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to="#">
-          <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place" />
-        </Link>
-      </div>
+      {
+        (offerType === 'ordinary') ?
+          <div className="cities__image-wrapper place-card__image-wrapper">
+            <Link to="#">
+              <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place" />
+            </Link>
+          </div> :
+          <div className="favorites__image-wrapper place-card__image-wrapper">
+            <Link to="#">
+              <img className="place-card__image" src={offer.previewImage} width="150" height="110" alt="Place" />
+            </Link>
+          </div>
+      }
       <div
-        className="place-card__info"
+        className={`${offerType} place-card__info`}
       >
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
@@ -43,9 +53,7 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
           <button
             className=
               {
-                offer.isFavorite ?
-                  'place-card__bookmark-button place-card__bookmark-button--active button' :
-                  'place-card__bookmark-button button'
+                `place-card__bookmark-button button ${offer.isFavorite ? 'place-card__bookmark-button--active' : ''}`
               }
             type="button"
           >
