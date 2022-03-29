@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
-<<<<<<< HEAD:project/src/components/app/main-screen/main-screen.tsx
-import { Offer } from '../../../types/offer';
-=======
 import { Offer } from '../../types/offer';
->>>>>>> 86fbdb1ad716d6236181ff18043e5d9029b21dd6:project/src/routes/main-screen/main-screen.tsx
 import OffersListScreen from '../offers-list-screen/offers-list-screen';
 
 type AppScreenProps = {
