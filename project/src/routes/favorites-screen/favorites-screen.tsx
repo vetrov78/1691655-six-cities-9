@@ -10,7 +10,7 @@ type FavoriteScreenProps = {
 
 function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
   const {offers} = props;
-  const [activeOffer, setActiveOffer] = useState({} as Offer);
+  const [activeOffer, setActiveOffer] = useState<Offer | undefined>(undefined);
   const favoriteCitiesList: {[name:string]: Offer[]} = {};
 
   offers.forEach(
@@ -54,7 +54,7 @@ function FavoritesScreen (props: FavoriteScreenProps): JSX.Element {
             <h1 className="favorites__title">Saved listing {offers.length}</h1>
 
             {
-              'id' in activeOffer ?
+              activeOffer ?
                 <h2>{activeOffer.id}</h2> :
                 <h2>0</h2>
             }

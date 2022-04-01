@@ -4,9 +4,9 @@ import { Offer } from '../../types/offer';
 import { getRatingInProcent } from '../../utils';
 
 type OfferCardScreenProps = {
-offerType: string
+  offerType: string
   offer: Offer
-  setActiveOffer: (offer: Offer) => void
+  setActiveOffer: (offer: Offer | undefined) => void
 }
 
 function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
@@ -20,7 +20,7 @@ function OfferCardScreen(props: OfferCardScreenProps): JSX.Element {
   return (
     <article
       onMouseEnter={() => setActiveOffer(offer)}
-      onMouseLeave={() => setActiveOffer({} as Offer)}
+      onMouseLeave={() => setActiveOffer(undefined)}
       className={`${ClassNames[offerType]} place-card`}
     >
       {

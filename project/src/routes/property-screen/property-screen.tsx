@@ -8,9 +8,6 @@ function PropertyScreen (props: { offers: Offer[] }): JSX.Element {
   const {offers} = props;
   const currentOffer = offers.find((offer) => offer.id === Number(id));
 
-  // eslint-disable-next-line no-console
-  console.log(currentOffer);
-
   return (
     <div className="page">
       <header className="header">

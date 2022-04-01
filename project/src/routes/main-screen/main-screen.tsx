@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
 import { Offer } from '../../types/offer';
 import OffersListScreen from '../offers-list-screen/offers-list-screen';
+import Map from '../../components/map/map';
+import { CITY } from '../../mocks/city';
+import { useState } from 'react';
 
 type AppScreenProps = {
   rentObjecsNumber: number;
@@ -9,6 +12,8 @@ type AppScreenProps = {
 }
 
 function MainScreen({rentObjecsNumber, offers}: AppScreenProps): JSX.Element {
+  const [activeOffer, setActiveOffer] = useState<Offer | undefined>(undefined);
+
   return(
     <div className="page page--gray page--main">
       <header className="header">
@@ -95,10 +100,21 @@ function MainScreen({rentObjecsNumber, offers}: AppScreenProps): JSX.Element {
               </form>
               <OffersListScreen
                 offers={offers}
+                setActiveOffer={
+                  (currentOffer) => {
+                    setActiveOffer(currentOffer);
+                  }
+                }
               />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map
+                  city={CITY}
+                  points={offers}
+                  selectedPoint={activeOffer}
+                />
+              </section>
             </div>
           </div>
         </div>
