@@ -2,13 +2,21 @@ import { useState } from 'react';
 
 function ReviewScreen(): JSX.Element {
   const [commentText, setCommentText] = useState('');
-  const ratingForm = () => {
+  const [reviewRating, setReviewRating] = useState(0);
+
+  const ratingForm = function() {
     const content = [];
+
     for (let i = 1; i < 6; i++) {
       content.push(
         <>
           <input className="form__rating-input visually-hidden" name="rating" value={i} id={`${i}-stars`} type="radio" />
-          <label htmlFor={`${i}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+          <label
+            htmlFor={`${i}-stars`}
+            className="reviews__rating-label form__rating-label"
+            title="perfect"
+            onMouseEnter={() => setReviewRating(6-i)}
+          >
             <svg className="form__star-image" width="37" height="33">
               <use xlinkHref="#icon-star"></use>
             </svg>
