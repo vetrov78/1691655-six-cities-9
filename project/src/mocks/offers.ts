@@ -1,6 +1,6 @@
 import { Offer } from '../types/offer';
 
-export const offers: Offer[] = [
+export const OFFERS: Offer[] = [
   {
     'city': {
       'name': 'Amsterdam',

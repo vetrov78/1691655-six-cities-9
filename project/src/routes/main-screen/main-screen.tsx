@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Logo from '../logo/logo';
+import Logo from '../../components/logo/logo';
 import { Offer } from '../../types/offer';
 import OffersListScreen from '../offers-list-screen/offers-list-screen';
 import Map from '../../components/map/map';

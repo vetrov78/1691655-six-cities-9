@@ -1,4 +1,4 @@
-import Logo from '../logo/logo';
+import Logo from '../../components/logo/logo';
 import { Link } from 'react-router-dom';
 import { Offer, Offers } from '../../types/offer';
 import OfferCardScreen from '../offer-card-screen/offer-card-screen';

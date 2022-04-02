@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Logo from '../logo/logo';
+import Logo from '../../components/logo/logo';
 
 function LoginScreen (): JSX.Element {
   return (
