@@ -1,4 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
+import Map from '../../components/map/map';
+import { CITY } from '../../mocks/city';
+import { OFFERS_NEAR } from '../../mocks/offersNear';
 import { REVIEWS } from '../../mocks/reviews';
 import { Offer } from '../../types/offer';
 import { getRatingInProcent } from '../../utils';
@@ -149,7 +152,13 @@ function PropertyScreen (props: { offers: Offer[] }): JSX.Element {
               </section>
             </div>
           </div>
-          <section className="property__map map"></section>
+          <section className="property__map map">
+            <Map
+              city={CITY}
+              points= {OFFERS_NEAR}
+              selectedPoint={undefined}
+            />
+          </section>
         </section>
         <div className="container">
           <section className="near-places places">
