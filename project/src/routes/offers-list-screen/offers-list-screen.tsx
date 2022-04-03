@@ -1,10 +1,5 @@
-import { Offer, Offers } from '../../types/offer';
+import { OffersListProps } from '../../types/offer';
 import OfferCardScreen from '../offer-card-screen/offer-card-screen';
-
-type OffersListProps = {
-  offers: Offers;
-  setActiveOffer: (offer: Offer | undefined) => void
-}
 
 function OffersListScreen(props: OffersListProps):JSX.Element {
   const {offers, setActiveOffer} = props;

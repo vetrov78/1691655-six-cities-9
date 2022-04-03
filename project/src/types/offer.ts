@@ -36,3 +36,8 @@ export type Offer = {
 }
 
 export type Offers = Offer[]
+
+export type OffersListProps = {
+  offers: Offers;
+  setActiveOffer: (offer: Offer | undefined) => void
+}

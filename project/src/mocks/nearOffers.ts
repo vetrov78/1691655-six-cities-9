@@ -1,6 +1,6 @@
 import { Offer } from '../types/offer';
 
-export const OFFERS_NEAR: Offer[] =  [
+export const NEAR_OFFERS: Offer[] =  [
   {
     'city': {
       'name': 'Amsterdam',
